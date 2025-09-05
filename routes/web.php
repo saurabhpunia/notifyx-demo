@@ -3,15 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (): RedirectResponse {
+    return redirect('login');
 });
 
 // Simple auth routes for demo
 Route::get('/login', \App\Livewire\Login::class)->name('login');
 
-Route::post('/login', function () {
+Route::post('/login', function (): RedirectResponse {
     // Create or get first user for demo
     $user = User::firstOrCreate(
         ['email' => 'demo@example.com'],
@@ -27,7 +28,7 @@ Route::post('/login', function () {
     return redirect('/dashboard');
 });
 
-Route::post('/logout', function () {
+Route::post('/logout', function (): RedirectResponse {
     Auth::logout();
     return redirect('/');
 })->name('logout');

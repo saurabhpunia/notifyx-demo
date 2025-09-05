@@ -3,7 +3,6 @@
 namespace Notifyx\Livewire;
 
 use Livewire\Component;
-use Notifyx\Models\NotificationPreference;
 
 class NotificationPreferences extends Component
 {
@@ -126,6 +125,6 @@ class NotificationPreferences extends Component
         return view('notifyx::livewire.notification-preferences', [
             'channels' => $this->channels,
             'channelLabels' => $this->channelLabels,
-        ])->layout('components.layouts.app');
+        ]);
     }
 }
