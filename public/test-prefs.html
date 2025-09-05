@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Preferences</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <h1>Test Notification Preferences</h1>
+    
+    <div id="result">
+        Loading...
+    </div>
+    
+    <script>
+        fetch('/notifications/preferences')
+            .then(response => response.text())
+            .then(html => {
+                if (html.includes('Notification Preferences')) {
+                    document.getElementById('result').innerHTML = '✅ Preferences page loads successfully';
+                } else if (html.includes('error') || html.includes('Error')) {
+                    document.getElementById('result').innerHTML = '❌ Error loading preferences page';
+                } else {
+                    document.getElementById('result').innerHTML = '⚠️ Preferences page loads but content unclear';
+                }
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = '❌ Failed to load preferences page: ' + error.message;
+            });
+    </script>
+</body>
+</html>
