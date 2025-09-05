@@ -2,6 +2,12 @@
 
 A simple and powerful notification system for Laravel applications. Send notifications to users and display them beautifully with real-time updates.
 
+> **📋 This is a Demo Project**
+> 
+> This repository demonstrates the usage of the `saurabhpunia/notifyx` package. The actual package is available on [Packagist](https://packagist.org/packages/saurabhpunia/notifyx).
+> 
+> To see this demo in action, clone this repository and follow the installation steps below.
+
 ## 📋 What Does This Package Do?
 
 - **📧 Send Notifications**: Easily send notifications to users
@@ -36,7 +42,7 @@ And display notifications in your layout:
 ### Step 1: Install the Package
 
 ```bash
-composer require notifyx/notifyx
+composer require saurabhpunia/notifyx
 ```
 
 ### Step 2: Publish and Run Migrations
@@ -51,6 +57,35 @@ php artisan migrate
 ```bash
 php artisan vendor:publish --tag="notifyx-config"
 ```
+
+## 🏃‍♂️ Running This Demo
+
+If you've cloned this demo repository:
+
+1. **Install Dependencies**:
+   ```bash
+   composer install
+   npm install
+   ```
+
+2. **Setup Environment**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+3. **Run Migrations**:
+   ```bash
+   php artisan migrate
+   ```
+
+4. **Start the Development Server**:
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+5. **Visit the Demo**: Open http://localhost:8000 in your browser
 
 ### Step 4: Add Trait to User Model
 
