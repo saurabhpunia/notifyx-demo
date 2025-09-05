@@ -121,6 +121,6 @@ class NotificationPage extends Component
             'notifications' => $notifications,
             'notificationTypes' => $this->notificationTypes,
             'unreadCount' => $unreadCount,
-        ])->layout('components.layouts.app');
+        ]);
     }
 }

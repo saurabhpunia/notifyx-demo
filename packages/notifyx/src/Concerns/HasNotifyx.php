@@ -2,9 +2,6 @@
 
 namespace Notifyx\Concerns;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Notifyx\Models\NotificationPreference;
 
@@ -272,10 +269,12 @@ trait HasNotifyx
             ->get();
 
         $count = $notifications->count();
-        
-        $notifications->each(function ($notification) {
-            $notification->markAsRead();
-        });
+
+        foreach ($notifications as $notification) {
+            if (method_exists($notification, 'markAsRead')) {
+                $notification->markAsRead();
+            }
+        }
 
         return $count;
     }
